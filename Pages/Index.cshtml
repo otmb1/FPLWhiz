@@ -1,0 +1,13 @@
+﻿@page
+@model FPLWhiz.Controllers.HomeController
+@{
+    ViewData["Title"] = "FPLWhiz";
+}
+
+<h1>FPLWhiz</h1>
+
+<form method="post">
+    <label for="playerName">Enter Player Name or Phrase:</label>
+    <input type="text" id="playerName" name="playerName" required>
+    <button type="submit">Get Recommendation</button>
+</form>
