@@ -1,0 +1,34 @@
+﻿@model string
+
+<h1>FPLWhiz</h1>
+
+<form id="recommendationForm">
+    <label for="playerName">Enter Player Name or Phrase:</label>
+    <input type="text" id="playerName" name="playerName" required>
+    <button type="submit">Get Recommendation</button>
+</form>
+
+<div id="recommendationResult"></div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#recommendationForm").submit(function (e) {
+                e.preventDefault();
+                var playerName = $("#playerName").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/GetRecommendation",
+                    data: { playerName: playerName },
+                    success: function (data) {
+                        $("#recommendationResult").html(data);
+                    },
+                    error: function () {
+                        $("#recommendationResult").html("An error occurred.");
+                    }
+                });
+            });
+        });
+    </script>
+}
