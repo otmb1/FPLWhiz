@@ -1,7 +1,11 @@
 ﻿@model string
 
-@if (!string.IsNullOrEmpty(Model))
-{
-    <h2>Recommendation</h2>
-    <p>@Model</p>
-}
+<div class="container mt-4">
+    @if (!string.IsNullOrEmpty(Model))
+    {
+        <div class="alert @((Model.Contains("Hold") || Model.Contains("Sell")) ? "alert-danger" : "alert-success")" role="alert">
+            <h4 class="alert-heading">Recommendation</h4>
+            <p>@Model</p>
+        </div>
+    }
+</div>

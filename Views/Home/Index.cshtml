@@ -1,14 +1,26 @@
 ﻿@model string
 
-<h1>FPLWhiz</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">FPLWhiz</h1>
+                    <form method="post" id="recommendationForm">
+                        <div class="form-group">
+                            <label for="playerName">Enter Player Name or Phrase:</label>
+                            <input type="text" id="playerName" name="playerName" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Get Recommendation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<form id="recommendationForm">
-    <label for="playerName">Enter Player Name or Phrase:</label>
-    <input type="text" id="playerName" name="playerName" required>
-    <button type="submit">Get Recommendation</button>
-</form>
-
-<div id="recommendationResult"></div>
+<div id="recommendationResult" class="container mt-4">
+</div>
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
