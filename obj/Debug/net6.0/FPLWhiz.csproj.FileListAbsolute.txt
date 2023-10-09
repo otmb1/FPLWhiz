@@ -28,3 +28,6 @@ C:\Users\oreol\Documents\C#\FPLWhiz\FPLWhiz\obj\Debug\net6.0\refint\FPLWhiz.dll
 C:\Users\oreol\Documents\C#\FPLWhiz\FPLWhiz\obj\Debug\net6.0\FPLWhiz.pdb
 C:\Users\oreol\Documents\C#\FPLWhiz\FPLWhiz\obj\Debug\net6.0\FPLWhiz.genruntimeconfig.cache
 C:\Users\oreol\Documents\C#\FPLWhiz\FPLWhiz\obj\Debug\net6.0\ref\FPLWhiz.dll
+C:\Users\oreol\Documents\C#\FPLWhiz\FPLWhiz\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\oreol\Documents\C#\FPLWhiz\FPLWhiz\obj\Debug\net6.0\FPLWhiz.csproj.AssemblyReference.cache
+C:\Users\oreol\Documents\C#\FPLWhiz\FPLWhiz\obj\Debug\net6.0\FPLWhiz.csproj.CopyComplete

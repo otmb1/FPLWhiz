@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kPv4/dtZErrug7pE+zkEY+jmHLb/kTEcUZXEemXhLkalGQKhFzDQ4esQ5Du8vcCvSc4wfPsAPvjpPYO1ybb9ZA==",
+  "dgSpecHash": "Catu81Zfl8nJ9ZRkO9rI1EgMXNWVZ3YWkskrZXsimkqEbpfU0JfxU1JegabICLXgEYdxLQ9FYmAzlq0H7hLJmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\oreol\\Documents\\C#\\FPLWhiz\\FPLWhiz\\FPLWhiz.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\oreol\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
