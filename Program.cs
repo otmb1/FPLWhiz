@@ -34,6 +34,12 @@ public class Program
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
 
+        app.MapControllerRoute(
+            name: "compare",
+            pattern: "Home/ComparePlayers",
+            defaults: new { controller = "Home", action = "ComparePlayers" }
+        );
+
         app.Run();
     }
 }
