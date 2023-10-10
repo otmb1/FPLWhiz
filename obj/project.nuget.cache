@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Catu81Zfl8nJ9ZRkO9rI1EgMXNWVZ3YWkskrZXsimkqEbpfU0JfxU1JegabICLXgEYdxLQ9FYmAzlq0H7hLJmA==",
+  "dgSpecHash": "qT5fXEgGux5x16TNJsLNlMPG/SwNeqRcD/p+8rP72CY5+k4bn3MxlW95ykbuDqnNp+gEXfwJ/OB+O/YeHFHIGg==",
   "success": true,
   "projectFilePath": "C:\\Users\\oreol\\Documents\\C#\\FPLWhiz\\FPLWhiz\\FPLWhiz.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\oreol\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
     "C:\\Users\\oreol\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
