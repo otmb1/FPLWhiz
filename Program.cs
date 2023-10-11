@@ -11,8 +11,6 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 
-        builder.Services.AddSingleton<FantasyRecommendation>();
-
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
