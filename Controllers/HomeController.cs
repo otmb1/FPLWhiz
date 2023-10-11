@@ -10,12 +10,10 @@ using System.Linq;
 
 public class HomeController : Controller
 {
-    private readonly FantasyRecommendation _fantasyRecommendation;
     private readonly List<Player> _players;
 
-    public HomeController(FantasyRecommendation fantasyRecommendation)
+    public HomeController()
     {
-        _fantasyRecommendation = fantasyRecommendation;
 
         var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture);
         using (var reader = new StreamReader("FPLData.csv"))
@@ -28,20 +26,6 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         return View();
-    }
-
-    [HttpPost]
-    public IActionResult GetRecommendation(string playerName)
-    {
-        try
-        {
-            string recommendation = _fantasyRecommendation.GetRecommendation(playerName);
-            return PartialView("_RecommendationPartial", recommendation);
-        }
-        catch (Exception ex)
-        {
-            return PartialView("_RecommendationPartial", "An error occurred.");
-        }
     }
 
     [HttpGet]
