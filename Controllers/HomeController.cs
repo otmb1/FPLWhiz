@@ -31,7 +31,10 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult ComparePlayers()
     {
-        return View();
+        return View(new CompareViewModel
+        {
+            Players = _players
+        });
     }
 
     [HttpPost]

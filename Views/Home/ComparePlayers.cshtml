@@ -9,10 +9,16 @@
                 <div class="form-group">
                     <label for="player1Name">Enter Player 1 Name:</label>
                     <input type="text" id="player1Name" name="player1Name" class="form-control" required>
+                    <div id="player1Dropdown" class="dropdown">
+                        <ul id="player1DropdownList" class="dropdown-content"></ul>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="player2Name">Enter Player 2 Name:</label>
                     <input type="text" id="player2Name" name="player2Name" class="form-control" required>
+                    <div id="player2Dropdown" class="dropdown">
+                        <ul id="player2DropdownList" class="dropdown-content"></ul>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Compare Players</button>
             </form>
@@ -67,3 +73,74 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function updateDropdown(input, dropdown, dropdownList) {
+            var filter = input.value.toUpperCase();
+            var items = dropdownList.getElementsByTagName("li");
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                if (item.textContent.toUpperCase().indexOf(filter) > -1) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            }
+            dropdown.classList.add("is-active");
+        }
+
+        $(document).ready(function () {
+            $("#player1Name").on("input", function () {
+                var playerName = this.value;
+                var player1Dropdown = document.getElementById("player1Dropdown");
+                var player1DropdownList = document.getElementById("player1DropdownList");
+
+                player1DropdownList.innerHTML = "";
+
+                var matchingPlayers = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Players))
+                .filter(player => player.second_name.toLowerCase().includes(playerName.toLowerCase()))
+                        .slice(0, 10);
+
+                matchingPlayers.forEach(player => {
+                    var listItem = document.createElement("li");
+                    listItem.textContent = `${player.second_name}`;
+                    listItem.addEventListener("click", function () {
+                        document.getElementById("player1Name").value = listItem.textContent;
+                        player1Dropdown.classList.remove("is-active");
+                    });
+                    player1DropdownList.appendChild(listItem);
+                });
+
+                updateDropdown(this, player1Dropdown, player1DropdownList);
+            });
+
+            $("#player2Name").on("input", function () {
+                var playerName = this.value;
+                var player2Dropdown = document.getElementById("player2Dropdown");
+                var player2DropdownList = document.getElementById("player2DropdownList");
+
+                player2DropdownList.innerHTML = "";
+
+                var matchingPlayers = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Players))
+                .filter(player => player.second_name.toLowerCase().includes(playerName.toLowerCase()))
+                        .slice(0, 10);
+
+                matchingPlayers.forEach(player => {
+                    var listItem = document.createElement("li");
+                    listItem.textContent = `${player.second_name}`;
+                    listItem.addEventListener("click", function () {
+                        document.getElementById("player2Name").value = listItem.textContent;
+                        player2Dropdown.classList.remove("is-active");
+                    });
+                    player2DropdownList.appendChild(listItem);
+                });
+
+                updateDropdown(this, player2Dropdown, player2DropdownList);
+            });
+
+
+        });
+    </script>
+}
