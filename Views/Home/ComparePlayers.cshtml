@@ -21,6 +21,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Compare Players</button>
+                <button type="button" class="btn btn-secondary" id="reloadButton">Refresh</button>
             </form>
 
             @if (Model != null)
@@ -74,9 +75,37 @@
     </div>
 </div>
 
+@if (Model != null && Model.Player1 != null && Model.Player2 != null)
+{
+    var player1Score = CalculatePlayerScore(Model.Player1);
+    var player2Score = CalculatePlayerScore(Model.Player2);
+
+    string betterPlayer;
+    if (player1Score > player2Score)
+    {
+        betterPlayer = $"Based on this comparison, <strong>{@Model.Player1.second_name}</strong> is a better pick than <strong>{@Model.Player2.second_name}!</strong>";
+    }
+    else if (player1Score < player2Score)
+    {
+        betterPlayer = $"Based on this comparison, <strong>{@Model.Player2.second_name}</strong> is a better pick than <strong>{@Model.Player1.second_name}!</strong>";
+    }
+    else
+    {
+        betterPlayer = $"Based on this comparison, there is no seperating between <strong>{@Model.Player1.second_name}</strong> and <strong>{@Model.Player2.second_name}!</strong>";
+    }
+
+    <div class="alert alert-success mt-3">
+        @Html.Raw(betterPlayer)
+    </div>
+}
+
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        $("#reloadButton").on("click", function () {
+            location.reload();
+        });
+
         function updateDropdown(input, dropdown, dropdownList) {
             var filter = input.value.toUpperCase();
             var items = dropdownList.getElementsByTagName("li");
@@ -143,4 +172,11 @@
 
         });
     </script>
+}
+
+@functions {
+    private double CalculatePlayerScore(Player player)
+    {
+        return player.goals_scored * 2 + player.assists * 2 + player.influence * 3 + player.threat * 3;
+    }
 }
